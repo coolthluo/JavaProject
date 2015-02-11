@@ -1,0 +1,391 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package ooadproject;
+
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import java.awt.Container;
+import java.awt.GridBagLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javafx.embed.swing.JFXPanel;
+import javafx.scene.control.ScrollBar;
+import javax.swing.ButtonGroup;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import static ooadproject.Login.result;
+
+/**
+ *
+ * @author Manish
+ */
+public class CommunicationMain extends javax.swing.JPanel {
+
+    /**
+     * Creates new form PanelAlignment
+     */
+    
+    String[][] inboxResult;
+    String[][] sentResult;
+    InboxController control;
+    SentController control1;
+    Login log;
+    static InboxPage inbox;
+    static SentItemPage sent;
+    static int count=0;
+    JMenuBar mbar;
+    JMenu menu;
+    JMenuItem item;
+    static JFrame frame;
+    JRadioButton jrb;
+    JRadioButton jrb1;
+    JScrollPane jp;
+    JPanel PaneForRegisterLogin;
+    JPanel RegisterPanel;
+    JPanel cards;
+    String register = "Register";
+    String Login1 = "Login";
+    String Search = "Search";
+    String createStr="create";
+    JPanel SearchPanel;
+    JPanel pane1;
+    ScrollBar scrollbar;
+    JPanel createPanel;
+    CreateMessagePage create;
+    public CommunicationMain() {
+    initComponents();
+    jLabel2.setText("Welcome, "+result[2]+"!");
+    
+       
+    }
+
+    /*public void actionPerformed(ActionEvent e) {
+        System.out.println("hi");
+        
+        LaunchApplication la=new LaunchApplication();
+        Search se=new Search();
+        SearchPanel=new JPanel(new GridBagLayout());
+        SearchPanel.add(se);
+        //createAndShowGUI();
+      // cards=new JPanel(new CardLayout());
+        //cards.add(SearchPanel,Search);
+        LoginPanel.setVisible(false);
+        log.jPanel2.setVisible(false);
+        log.jPanel1.setVisible(false);
+        log.setVisible(false);
+       frame.remove(jPanel2);
+       frame.add(SearchPanel);
+       //cards.setVisible(true);
+       // CardLayout cl = (CardLayout) (cards.getLayout());
+       // cl.show(cards, Search);
+
+    }*/
+
+    public void addComponentToPane(Container pane) {
+
+        /*RadioButtonForm rbf=new RadioButtonForm();
+         //jrb=new JRadioButton(Login);
+         //jrb1=new JRadioButton(register);
+         mbar=new JMenuBar();
+         menu=new JMenu("Options");
+         item=new JMenuItem("open");
+         item.add(jRadioButton1);
+         item.add(jRadioButton2);
+         menu.add(item);
+         mbar.add(menu);
+        
+         jPanel3.setLayout(new CardLayout());
+         jPanel3.add(new JPanel(),"empty panel");
+         //jPanel3.add(new JPanel(),"empty panel");
+         jPanel3.add(mbar,"open");
+         // jPanel3.add(jrb1,register);
+         CardLayout cd=(CardLayout)jPanel3.getLayout();
+         cd.show(jPanel3, "open");*/
+        //cd.show(jPanel3, register);
+        RegisterPanel = new JPanel(new GridBagLayout());
+        RegisterPanel.setName(register);
+        //calling register class here
+       // Register reg = new Register();
+        sent=new SentItemPage();
+        RegisterPanel.add(sent);
+        //login class here
+         //log = new Login();
+        inbox=new InboxPage();
+        //Search search=new Search();
+        LoginPanel.add(inbox);
+       createPanel=new JPanel(new GridBagLayout());
+        create=new CreateMessagePage();
+        createPanel.add(create);
+        //card panel is creating
+        cards = new JPanel(new CardLayout());
+        //adding both panel to cards
+        cards.add(LoginPanel, Login1);
+        cards.add(RegisterPanel, register);
+        cards.add(createPanel,createStr);
+        cards.setVisible(false);
+        pane1=new JPanel(new BorderLayout());
+        pane1.add(jPanel1, BorderLayout.PAGE_START);
+        //pane.add(jPanel2,BorderLayout.CENTER);
+        pane1.add(jPanel3, BorderLayout.WEST);
+        pane1.add(cards);
+        
+         JScrollPane scrollPane = new JScrollPane(pane1);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setBounds(50, 30, 300, 500);
+        pane.add(scrollPane);
+
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        LoginPanel = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        messageButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+
+        setLayout(new java.awt.BorderLayout());
+
+        jPanel1.setBackground(new java.awt.Color(204, 0, 0));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jPanel1.setPreferredSize(new java.awt.Dimension(50, 100));
+        jPanel1.setLayout(new java.awt.GridBagLayout());
+
+        jLabel1.setBackground(new java.awt.Color(204, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/fil-3squares-02.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new java.awt.GridBagConstraints());
+
+        jPanel4.setBackground(new java.awt.Color(204, 0, 0));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setText("jLabel2");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(43, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addGap(23, 23, 23))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jLabel2)
+                .addContainerGap(43, Short.MAX_VALUE))
+        );
+
+        jPanel1.add(jPanel4, new java.awt.GridBagConstraints());
+
+        add(jPanel1, java.awt.BorderLayout.CENTER);
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0), 5));
+        jPanel2.setPreferredSize(new java.awt.Dimension(100, 120));
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        LoginPanel.setBackground(new java.awt.Color(255, 255, 255));
+        LoginPanel.setPreferredSize(new java.awt.Dimension(434, 102));
+        LoginPanel.setLayout(new java.awt.GridBagLayout());
+        jPanel2.add(LoginPanel, java.awt.BorderLayout.CENTER);
+
+        add(jPanel2, java.awt.BorderLayout.PAGE_START);
+
+        jPanel3.setBackground(new java.awt.Color(204, 0, 0));
+        jPanel3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        jPanel3.setPreferredSize(new java.awt.Dimension(175, 175));
+
+        messageButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        messageButton.setText("Create Message");
+        messageButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                messageButtonActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setText("Inbox");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton2.setText("Sent Items");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton3.setText("Close");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(messageButton))
+                .addContainerGap(1231, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(messageButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(26, Short.MAX_VALUE))
+        );
+
+        add(jPanel3, java.awt.BorderLayout.PAGE_END);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+          cards.setVisible(true);
+        CardLayout cl = (CardLayout) (cards.getLayout());
+        cl.show(cards, Login1);
+        control=new InboxController();
+        inboxResult=new String[InboxPage.length][5];
+        String loginUserId=Login.array;
+        inboxResult=control.getInbox(loginUserId);
+        inbox.addJTable(inboxResult);
+        inbox.jPanel3.setVisible(false);
+                
+
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+       
+          cards.setVisible(true);
+        CardLayout cl = (CardLayout) (cards.getLayout());
+        cl.show(cards, register);
+        control1=new SentController(sent);
+        sentResult=new String[SentItemPage.length][5];
+        String loginUserId=Login.array;
+        sentResult=control1.getInbox(loginUserId);
+        sent.addJTable(sentResult);
+        sent.jPanel3.setVisible(false);
+      
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void messageButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_messageButtonActionPerformed
+        // TODO add your handling code here:
+        cards.setVisible(true);
+        CardLayout cl = (CardLayout) (cards.getLayout());
+        cl.show(cards, createStr);
+         String[] arg={"Find a User"};
+        create.jComboBox1.setModel(new DefaultComboBoxModel(arg));
+        create.jPanel2.setVisible(true);
+        create.jPanel3.setVisible(true);
+    }//GEN-LAST:event_messageButtonActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        frame.dispose();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel LoginPanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JButton messageButton;
+    // End of variables declaration//GEN-END:variables
+public static void createAndShowGUI() {
+        //Create and set up the window.
+        frame = new JFrame("Frugal Lab Application");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        //Create and set up the content pane.
+        CommunicationMain demo = new CommunicationMain();
+        demo.addComponentToPane(frame.getContentPane());
+
+        //Display the window.
+        frame.pack();
+        frame.setSize(800, 600);
+        frame.setVisible(true);
+
+    }
+
+    public static void main(String[] args) {
+        /* Use an appropriate Look and Feel */
+        try {
+            //UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
+            UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+        } catch (UnsupportedLookAndFeelException ex) {
+            ex.printStackTrace();
+        } catch (IllegalAccessException ex) {
+            ex.printStackTrace();
+        } catch (InstantiationException ex) {
+            ex.printStackTrace();
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+        /* Turn off metal's use of bold fonts */
+        UIManager.put("swing.boldMetal", Boolean.FALSE);
+
+        //Schedule a job for the event dispatch thread:
+        //creating and showing this application's GUI.
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                createAndShowGUI();
+            }
+        });
+    }
+}
